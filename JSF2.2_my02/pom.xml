@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>at.irian.jsfatwork</groupId>
-	<artifactId>mygourmet01</artifactId>
-	<packaging>war</packaging>
-	<version>2.0</version>
-	<name>JSF at Work - MyGourmet 1</name>
+	<groupId>JSF2.2_my02</groupId>
+	<artifactId>JSF2.2_my02</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+
+
 
 	<properties>
 		<myfaces.version>2.2.0-beta</myfaces.version>
@@ -89,6 +89,7 @@
 	</dependencies>
 
 
+	<packaging>war</packaging>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -110,5 +111,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	
 </project>
