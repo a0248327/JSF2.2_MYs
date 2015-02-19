@@ -12,57 +12,57 @@ import java.util.List;
 @ApplicationScoped
 public class CustomerServiceImpl implements CustomerService {
 
-    List<Customer> customers = new ArrayList<Customer>();
+	List<Customer> customers = new ArrayList<Customer>();
 
-    @PostConstruct
-    private void initialize() {
-        customers = new CustomerListBuilder().addCustomers(30).getList();
-    }
+	@PostConstruct
+	private void initialize() {
+		customers = new CustomerListBuilder().addCustomers(30).getList();
+	}
 
-    public Customer createNew() {
-        long newId = customers.size() + 1;
-        Customer customer = new Customer(newId);
-        Address address = new Address();
-        customer.getAddresses().add(address);
-        return customer;
-    }
+	public Customer createNew() {
+		long newId = customers.size() + 1;
+		Customer customer = new Customer(newId);
+		Address address = new Address();
+		customer.getAddresses().add(address);
+		return customer;
+	}
 
-    public boolean save(Customer customer) {
-        if (!customers.contains(customer)) {
-            customers.add(customer);
-        }
-        return true;
-    }
+	public boolean save(Customer customer) {
+		if (!customers.contains(customer)) {
+			customers.add(customer);
+		}
+		return true;
+	}
 
-    public void delete(Customer customer) {
-        customers.remove(customer);
-    }
+	public void delete(Customer customer) {
+		customers.remove(customer);
+	}
 
-    public Customer findById(long id) {
-        for (Customer p : customers) {
-            if (p.getId() == id) {
-                return p;
-            }
-        }
-        return null;
-    }
+	public Customer findById(long id) {
+		for (Customer p : customers) {
+			if (p.getId() == id) {
+				return p;
+			}
+		}
+		return null;
+	}
 
-    public List<Customer> findAll() {
-        return customers;
-    }
+	public List<Customer> findAll() {
+		return customers;
+	}
 
-    public Address createAddress() {
-        return new Address();
-    }
+	public Address createAddress() {
+		return new Address();
+	}
 
-    public void saveAddress(Customer customer, Address address) {
-        if (!customer.getAddresses().contains(address)) {
-            customer.getAddresses().add(address);
-        }
-    }
+	public void saveAddress(Customer customer, Address address) {
+		if (!customer.getAddresses().contains(address)) {
+			customer.getAddresses().add(address);
+		}
+	}
 
-    public void deleteAddress(Customer customer, Address address) {
-        customer.getAddresses().remove(address);
-    }
+	public void deleteAddress(Customer customer, Address address) {
+		customer.getAddresses().remove(address);
+	}
 
 }

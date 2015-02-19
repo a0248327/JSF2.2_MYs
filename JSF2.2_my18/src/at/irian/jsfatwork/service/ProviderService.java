@@ -5,14 +5,14 @@ import java.util.List;
 
 public interface ProviderService {
 
-    Provider createNew();
+	Provider createNew();
 
-    boolean save(Provider entity);
+	boolean save(Provider entity);
 
-    void delete(Provider entity);
+	void delete(Provider entity);
 
-    List<Provider> findAll();
+	List<Provider> findAll();
 
-    Provider findById(long id);
+	Provider findById(long id);
 
 }

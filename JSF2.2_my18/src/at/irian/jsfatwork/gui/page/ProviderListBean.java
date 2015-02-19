@@ -13,18 +13,18 @@ import java.util.List;
 @RequestScoped
 public class ProviderListBean {
 
-    @Inject
-    private ProviderService providerService;
+	@Inject
+	private ProviderService providerService;
 
-    private List<Provider> providerList;
+	private List<Provider> providerList;
 
-    @PostConstruct
-    public void init() {
-        providerList = providerService.findAll();
-    }
+	@PostConstruct
+	public void init() {
+		providerList = providerService.findAll();
+	}
 
-    public List<Provider> getProviderList() {
-        return providerList;
-    }
+	public List<Provider> getProviderList() {
+		return providerList;
+	}
 
 }

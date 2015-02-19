@@ -5,18 +5,18 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.Max;
 
 public class Address {
-    @NotNull
-    private String street;
-    @NotNull
-    private String city;
-    @NotNull
-    @Min(value = 1000)
-    @Max(value = 99999)
-    private Integer zipCode;
-    @NotNull
-    private String country;
+	@NotNull
+	private String street;
+	@NotNull
+	private String city;
+	@NotNull
+	@Min(value = 1000)
+	@Max(value = 99999)
+	private Integer zipCode;
+	@NotNull
+	private String country;
 
-    public Address() {
+	public Address() {
 		super();
 	}
 
@@ -27,35 +27,35 @@ public class Address {
 		this.country = country;
 	}
 
-    public String getStreet() {
-        return street;
-    }
+	public String getStreet() {
+		return street;
+	}
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
+	public void setStreet(String street) {
+		this.street = street;
+	}
 
-    public String getCity() {
-        return city;
-    }
+	public String getCity() {
+		return city;
+	}
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+	public void setCity(String city) {
+		this.city = city;
+	}
 
-    public Integer getZipCode() {
-        return zipCode;
-    }
+	public Integer getZipCode() {
+		return zipCode;
+	}
 
-    public void setZipCode(Integer zipCode) {
-        this.zipCode = zipCode;
-    }
+	public void setZipCode(Integer zipCode) {
+		this.zipCode = zipCode;
+	}
 
-    public String getCountry() {
-        return country;
-    }
+	public String getCountry() {
+		return country;
+	}
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+	public void setCountry(String country) {
+		this.country = country;
+	}
 }

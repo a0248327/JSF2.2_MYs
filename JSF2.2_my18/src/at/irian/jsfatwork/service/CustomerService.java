@@ -8,20 +8,20 @@ import java.util.List;
 
 public interface CustomerService {
 
-    Customer createNew();
+	Customer createNew();
 
-    boolean save(Customer customer);
+	boolean save(Customer customer);
 
-    void delete(Customer customer);
+	void delete(Customer customer);
 
-    List<Customer> findAll();
+	List<Customer> findAll();
 
-    Customer findById(long id);
+	Customer findById(long id);
 
-    Address createAddress();
+	Address createAddress();
 
-    void saveAddress(Customer customer, Address address);
+	void saveAddress(Customer customer, Address address);
 
-    void deleteAddress(Customer customer, Address address);
+	void deleteAddress(Customer customer, Address address);
 
 }

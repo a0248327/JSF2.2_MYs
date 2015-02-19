@@ -14,15 +14,15 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class NavigationResolver {
 
-    @Inject
-    private ViewConfigResolver viewConfigResolver;
+	@Inject
+	private ViewConfigResolver viewConfigResolver;
 
-    public NavigationOutcome getNavigationOutcome(Class<? extends ViewConfig> viewConfig) {
-        // Get the view config descriptor
-        ViewConfigDescriptor viewConfigDescriptor = viewConfigResolver.getViewConfigDescriptor(viewConfig);
-        String viewId = viewConfigDescriptor.getViewId();
-        boolean redirect = Page.NavigationMode.REDIRECT == viewConfigDescriptor.getNavigationMode();
-        return new NavigationOutcome(viewId, redirect);
-    }
+	public NavigationOutcome getNavigationOutcome(Class<? extends ViewConfig> viewConfig) {
+		// Get the view config descriptor
+		ViewConfigDescriptor viewConfigDescriptor = viewConfigResolver.getViewConfigDescriptor(viewConfig);
+		String viewId = viewConfigDescriptor.getViewId();
+		boolean redirect = Page.NavigationMode.REDIRECT == viewConfigDescriptor.getNavigationMode();
+		return new NavigationOutcome(viewId, redirect);
+	}
 
 }

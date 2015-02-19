@@ -11,39 +11,39 @@ import java.util.ArrayList;
  * customer profile
  */
 public class Customer {
-    @NotNull
-    private Long id;
-    @NotNull
+	@NotNull
+	private Long id;
+	@NotNull
 	private String firstName;
-    @NotNull
+	@NotNull
 	private String lastName;
-    @NotNull
-    private String email;
-    @NotNull
+	@NotNull
+	private String email;
+	@NotNull
 	private Character gender;
-    @Birthday
+	@Birthday
 	private Date birthday;
 	private Boolean useCreditCard = Boolean.FALSE;
-    @NotNull
+	@NotNull
 	private CreditCardType creditCardType;
-    @NotNull
+	@NotNull
 	private String creditCardNumber;
 	private List<String> preferredCategories = new ArrayList<String>();
-    private List<Address> addresses = new ArrayList<Address>();
+	private List<Address> addresses = new ArrayList<Address>();
 
-    public Customer(long id) {
-        this.id = id;
-    }
+	public Customer(long id) {
+		this.id = id;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getFirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
@@ -59,9 +59,9 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
+	public String getFullName() {
+		return firstName + " " + lastName;
+	}
 
 	public Character getGender() {
 		return gender;
@@ -112,14 +112,14 @@ public class Customer {
 	}
 
 	public List<String> getPreferredCategories() {
-        return preferredCategories;
-    }
+		return preferredCategories;
+	}
 
 	public void setPreferredCategories(List<String> preferredCategories) {
-        this.preferredCategories = preferredCategories;
-    }
+		this.preferredCategories = preferredCategories;
+	}
 
-    public List<Address> getAddresses() {
+	public List<Address> getAddresses() {
 		return addresses;
 	}
 
