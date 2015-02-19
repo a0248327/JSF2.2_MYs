@@ -22,15 +22,15 @@ public class ProviderServiceImpl implements ProviderService {
 		provider.getAddress().setZipCode(1010);
 		provider.getAddress().setCity("Wien");
 		provider.getAddress().setStreet("Rathausplatz 1");
-		provider.getAddress().setCountry("√ñsterreich");
+		provider.getAddress().setCountry("÷sterreich");
 		providers.add(provider);
 		// Add provider 2
 		provider = new Provider(2, "Restaurant Mykonos");
 		provider.addCategory("cat_gr");
 		provider.getAddress().setZipCode(1040);
 		provider.getAddress().setCity("Wien");
-		provider.getAddress().setStreet("Wiedner Hauptstra√üe 1");
-		provider.getAddress().setCountry("√ñsterreich");
+		provider.getAddress().setStreet("Wiedner Hauptstraﬂe 1");
+		provider.getAddress().setCountry("÷sterreich");
 		providers.add(provider);
 		// Add provider 3
 		provider = new Provider(3, "Zur lustigen Wirtin");
@@ -39,7 +39,7 @@ public class ProviderServiceImpl implements ProviderService {
 		provider.getAddress().setZipCode(1010);
 		provider.getAddress().setCity("Wien");
 		provider.getAddress().setStreet("Stephansplatz 1");
-		provider.getAddress().setCountry("√ñsterreich");
+		provider.getAddress().setCountry("÷sterreich");
 		providers.add(provider);
 	}
 

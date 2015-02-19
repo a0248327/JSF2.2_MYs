@@ -30,22 +30,17 @@
                 </h:outputFormat>
                 <h:outputText value="#{msgs.gender}:"/>
                 <h:outputText value="#{customerBean.selectedGender}"/>
-                <h:outputText value="#{msgs.credit_card_type}:"
-                              rendered="#{customerBean.customer.useCreditCard}"/>
-                <h:outputText value="#{customerBean.selectedCreditCardType}"
-                              rendered="#{customerBean.customer.useCreditCard}"/>
-                <h:outputText value="#{msgs.credit_card_number}:"
-                              rendered="#{customerBean.customer.useCreditCard}"/>
-                <h:outputText value="#{customerBean.customer.creditCardNumber}"
-                              rendered="#{customerBean.customer.useCreditCard}"/>
+                <h:outputText value="#{msgs.credit_card_type}:" rendered="#{customerBean.customer.useCreditCard}"/>
+                <h:outputText value="#{customerBean.selectedCreditCardType}" rendered="#{customerBean.customer.useCreditCard}"/>
+                <h:outputText value="#{msgs.credit_card_number}:" rendered="#{customerBean.customer.useCreditCard}"/>
+                <h:outputText value="#{customerBean.customer.creditCardNumber}" rendered="#{customerBean.customer.useCreditCard}"/>
                 <h:outputText value="#{msgs.preferred_categories}:"/>
                 <h:outputText value="#{customerBean.customer.preferredCategories}">
                     <mg:convertList separator=", " bundleName="msgs"/>
                 </h:outputText>
             </h:panelGrid>
             <h:panelGrid columns="1">
-                <h:outputFormat value="#{msgs.profile_msg}"
-                                rendered="#{customerBean.customer.firstName != null}">
+                <h:outputFormat value="#{msgs.profile_msg}" rendered="#{customerBean.customer.firstName != null}">
                     <f:param value="#{customerBean.customer.firstName}"/>
                     <f:param value="#{msgs.profile_active}"/>
                 </h:outputFormat>
@@ -57,8 +52,7 @@
                     <h3><h:outputText value="#{msgs.title_addresses}"/></h3>
                 </f:facet>
                 <h:commandLink action="#{customerBean.createAddress}" value="#{msgs.add_address}"/>
-                <p:dataTable id="addresses" var="address" value="#{customerBean.customer.addresses}"
-                             emptyMessage="#{msgs.addresses_empty}">
+                <p:dataTable id="addresses" var="address" value="#{customerBean.customer.addresses}" emptyMessage="#{msgs.addresses_empty}">
                     <p:column headerText="#{msgs.zip_code}">
                         <h:outputText value="#{address.zipCode}"/>
                     </p:column>

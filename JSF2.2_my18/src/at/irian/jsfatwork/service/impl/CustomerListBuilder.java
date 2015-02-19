@@ -19,12 +19,12 @@ public class CustomerListBuilder {
 	private static final String[] streets;
 
 	static {
-		firstNames = new String[] { "Paul", "Lena", "Anna", "Ben", "Max", "Sofia", "Lisa", "Jonas" };
-		genders = new Character[] { 'm', 'f', 'f', 'm', 'm', 'f', 'f', 'm' };
-		lastNames = new String[] { "Berger", "Meier", "Huber", "Moser", "Schmitz", "Steiner", "Weber" };
+		firstNames = new String[] { "Xin", "Paul", "Lena", "Anna", "Ben", "Max", "Sofia", "Lisa", "Jonas" };
+		genders = new Character[] {'m', 'm', 'f', 'f', 'm', 'm', 'f', 'f', 'm' };
+		lastNames = new String[] { "Mu", "Berger", "Meier", "Huber", "Moser", "Schmitz", "Steiner", "Weber" };
 		zipCodes = new Integer[] { 1010, 1020, 1030, 4020, 8020 };
 		cities = new String[] { "Wien", "Wien", "Wien", "Linz", "Graz" };
-		streets = new String[] { "Hauptstra√üe 1", "Poststra√üe 2", "Bahnhofstra√üe 4", "Europastra√üe 3", "Nordstra√üe 7", "Marktstra√üe 10" };
+		streets = new String[] { "Hauptstraﬂe 1", "Poststraﬂe 2", "Bahnhofstraﬂe 4", "Europastraﬂe 3", "Nordstraﬂe 7", "Marktstraﬂe 10" };
 	}
 
 	private final List<Customer> customers;
@@ -45,7 +45,7 @@ public class CustomerListBuilder {
 			customer.setEmail(email);
 			customer.setGender(genders[i % 8]);
 
-			Address address = new Address(zipCodes[i % 5], cities[i % 5], streets[i % 6], "√ñsterreich");
+			Address address = new Address(zipCodes[i % 5], cities[i % 5], streets[i % 6], "÷sterreich");
 			customer.getAddresses().add(address);
 
 			customers.add(customer);
