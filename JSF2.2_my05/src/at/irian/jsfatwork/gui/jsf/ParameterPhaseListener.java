@@ -17,6 +17,7 @@ import org.apache.commons.logging.LogFactory;
  */
 public class ParameterPhaseListener implements PhaseListener {
 	private static final long serialVersionUID = -7280164859565844793L;
+
 	private static Log log = LogFactory.getLog(ParameterPhaseListener.class);
 
 	public void afterPhase(PhaseEvent event) {

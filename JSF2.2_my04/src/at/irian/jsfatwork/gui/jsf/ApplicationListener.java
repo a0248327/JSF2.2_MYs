@@ -13,20 +13,20 @@ import javax.faces.event.SystemEventListener;
  * @author Michael Kurz
  */
 public class ApplicationListener implements SystemEventListener {
-    private static Log log = LogFactory.getLog(ApplicationListener.class);
+	private static Log log = LogFactory.getLog(ApplicationListener.class);
 
-    @Override
-    public void processEvent(SystemEvent event) {
-        if (event instanceof PostConstructApplicationEvent) {
-            log.debug("application startup ");
-        } else if (event instanceof PreDestroyApplicationEvent) {
-            log.debug("application shutdown");
-        }
-    }
+	@Override
+	public void processEvent(SystemEvent event) {
+		if (event instanceof PostConstructApplicationEvent) {
+			log.debug("application startup ");
+		} else if (event instanceof PreDestroyApplicationEvent) {
+			log.debug("application shutdown");
+		}
+	}
 
-    @Override
-    public boolean isListenerForSource(Object source) {
-        return source instanceof Application;
-    }
+	@Override
+	public boolean isListenerForSource(Object source) {
+		return source instanceof Application;
+	}
 
 }
