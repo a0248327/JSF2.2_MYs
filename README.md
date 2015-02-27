@@ -31,6 +31,7 @@
       5. rendered="#{customerBean.customer.useCreditCard}"
       6. validator="#{customerBean.validateCreditNumber}"
     3. editProvider.xhtml
+      1. h:commandButton id="cancel" value="#{msgs.cancel}" immediate="true"action="showProvider?faces-redirect=true&amp;includeViewParams=true"
     4. index.xhtml
     5. providerList.xhtml
     6. showCustomer.xhtml
