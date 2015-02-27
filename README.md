@@ -14,9 +14,9 @@
   2. messages_en.properties
 
 3. src
-  log4j.properties
-  ValidationMessages_de.properties
-  ValidationMessages_en.properties
+  1. log4j.properties
+  2. ValidationMessages_de.properties
+  3. ValidationMessages_en.properties
 
 4. WebContent
   1. *.xhtml
