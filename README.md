@@ -20,6 +20,21 @@
 
 4. WebContent
   1. *.xhtml
+    1. editAddress.xhtml:   
+      1. convertZipCode
+      2. h:commandButton id="cancel" value="#{msgs.cancel}" action="/showCustomer.xhtml" immediate="true"
+    2. editCustomer.xhtml:  
+      1. f:convertDateTime pattern="dd.MM.yyyy"
+      2. mg:validateAge minAge="18"
+      3. onclick="this.form.submit()"
+      4. valueChangeListener="#{customerBean.useCreditCardChanged}"
+      5. rendered="#{customerBean.customer.useCreditCard}"
+      6. validator="#{customerBean.validateCreditNumber}"
+    3. editProvider.xhtml
+    4. index.xhtml
+    5. providerList.xhtml
+    6. showCustomer.xhtml
+    7. showProvider.xhtml
   2. META-INF
     1. template
       1. template.xhtml 定义 template
