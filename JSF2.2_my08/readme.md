@@ -1,0 +1,6 @@
+
+
+Standardkomponenten
+
+CustomerBean: getPreferredCategoriesString()
+
