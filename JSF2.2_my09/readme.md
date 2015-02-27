@@ -1,0 +1,4 @@
+
+
+UIData und Detailansicht
+
