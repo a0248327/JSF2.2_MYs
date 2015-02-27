@@ -33,6 +33,7 @@
     3. editProvider.xhtml
       1. h:commandButton id="cancel" value="#{msgs.cancel}" immediate="true"action="showProvider?faces-redirect=true&amp;includeViewParams=true"
     4. index.xhtml
+      1. URL=showCustomer.jsf"
     5. providerList.xhtml
     6. showCustomer.xhtml
     7. showProvider.xhtml
