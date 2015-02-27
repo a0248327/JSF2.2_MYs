@@ -22,7 +22,9 @@
   1. *.xhtml
   2. META-INF
     1. template
-      1. customerTemplate.xhtml 定义 template
+      1. template.xhtml 定义 template
+      2. customerTemplate.xhtml 指向 leftSideBar.xhtml 并调用了 template.xhtml
+      3. lefSideBar.xhtml
   3. resources:
     1. images
     2. styles: css
