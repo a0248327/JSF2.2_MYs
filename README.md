@@ -20,7 +20,9 @@
 
 4. WebContent
   1. *.xhtml
-  2. META-INF: template
+  2. META-INF
+    1. template
+      1. customerTemplate.xhtml 定义 template
   3. resources:
     1. images
     2. styles: css
