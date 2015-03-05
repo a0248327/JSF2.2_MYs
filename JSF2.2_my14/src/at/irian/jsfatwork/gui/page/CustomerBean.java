@@ -29,7 +29,7 @@ public class CustomerBean {
 	private List<SelectItem> ccTypes;
 	private List<SelectItem> categories;
 	private UIInput creditCardTypeInput = null;
-	private boolean collapsed = false;
+	private boolean collapsed = false; // ob es collapsed ist.
 
 	@PostConstruct
 	private void init() {
