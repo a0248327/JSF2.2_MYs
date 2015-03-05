@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class Customer {
+	
 	private String firstName;
 	private String lastName;
 
