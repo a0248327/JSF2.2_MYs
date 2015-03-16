@@ -11,33 +11,33 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class DishService {
 
-    @Inject
-    private CrudService crudService;
+	@Inject
+	private CrudService crudService;
 
-    public Dish createNew() {
-        return crudService.createNew(Dish.class);
-    }
+	public Dish createNew() {
+		return crudService.createNew(Dish.class);
+	}
 
-    @Transactional
-    public void save(Provider provider, Dish dish) {
-        if (dish.isTransient()) {
-            Provider mergedProvider = crudService.merge(provider);
-            mergedProvider.addDish(dish);
-            crudService.persist(dish);
-        } else {
-            crudService.merge(dish);
-        }
-    }
+	@Transactional
+	public void save(Provider provider, Dish dish) {
+		if (dish.isTransient()) {
+			Provider mergedProvider = crudService.merge(provider);
+			mergedProvider.addDish(dish);
+			crudService.persist(dish);
+		} else {
+			crudService.merge(dish);
+		}
+	}
 
-    @Transactional
-    public void delete(Dish dish) {
-        Provider provider = dish.getProvider();
-        if (provider != null) {
-            provider.getDishes().remove(dish);
-        }
-        crudService.merge(provider);
-        dish = crudService.merge(dish);
-        crudService.delete(dish);
-    }
+	@Transactional
+	public void delete(Dish dish) {
+		Provider provider = dish.getProvider();
+		if (provider != null) {
+			provider.getDishes().remove(dish);
+		}
+		crudService.merge(provider);
+		dish = crudService.merge(dish);
+		crudService.delete(dish);
+	}
 
 }

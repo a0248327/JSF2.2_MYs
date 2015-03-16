@@ -10,18 +10,20 @@ import javax.persistence.PersistenceContext;
 @SuppressWarnings("UnusedDeclaration")
 public class EntityManagerProducer {
 
-    @PersistenceContext(unitName = "mygourmet")
-    private EntityManager entityManager;
+	@PersistenceContext(unitName = "mygourmet")
+	private EntityManager entityManager;
 
-    @Produces @Default @RequestScoped
-    public EntityManager createEntityManager() {
-        return this.entityManager;
-    }
+	@Produces
+	@Default
+	@RequestScoped
+	public EntityManager createEntityManager() {
+		return this.entityManager;
+	}
 
-    public void dispose(@Disposes @Default EntityManager entityManager) {
-        if (entityManager.isOpen()) {
-            entityManager.close();
-        }
-    }
+	public void dispose(@Disposes @Default EntityManager entityManager) {
+		if (entityManager.isOpen()) {
+			entityManager.close();
+		}
+	}
 
 }

@@ -13,67 +13,67 @@ import javax.inject.Named;
 @ViewAccessScoped
 public class CustomerBean extends CustomerBeanBase {
 
-    @Inject
-    private CustomerService customerService;
+	@Inject
+	private CustomerService customerService;
 
-    private boolean collapsed = false;
-    private Address address;
+	private boolean collapsed = false;
+	private Address address;
 
-    @PostConstruct
-    public void init() {
-        super.init();
-    }
+	@PostConstruct
+	public void init() {
+		super.init();
+	}
 
-    public Class<? extends ViewConfig> showCustomer(long id) {
-        this.customer = customerService.findById(id);
-        return View.ShowCustomer.class;
-    }
+	public Class<? extends ViewConfig> showCustomer(long id) {
+		this.customer = customerService.findById(id);
+		return View.ShowCustomer.class;
+	}
 
 	public Class<? extends ViewConfig> saveCustomer() {
-        customerService.save(customer);
-        return View.ShowCustomer.class;
-    }
+		customerService.save(customer);
+		return View.ShowCustomer.class;
+	}
 
 	public Class<? extends ViewConfig> cancelCustomer() {
-        return View.ShowCustomer.class;
-    }
+		return View.ShowCustomer.class;
+	}
 
 	public Class<? extends ViewConfig> createAddress() {
-        this.address = customerService.createAddress();
-        return View.EditAddress.class;
-    }
+		this.address = customerService.createAddress();
+		return View.EditAddress.class;
+	}
 
-    public Class<? extends ViewConfig> editAddress(Address address) {
-        this.address = address;
-        return View.EditAddress.class;
-    }
+	public Class<? extends ViewConfig> editAddress(Address address) {
+		this.address = address;
+		return View.EditAddress.class;
+	}
 
-    public Class<? extends ViewConfig> saveAddress() {
-        customerService.saveAddress(customer, address);
-        this.customer = customerService.findById(this.customer.getId());
-        this.address = null;
-        return View.ShowCustomer.class;
-    }
+	public Class<? extends ViewConfig> saveAddress() {
+		customerService.saveAddress(customer, address);
+		this.customer = customerService.findById(this.customer.getId());
+		this.address = null;
+		return View.ShowCustomer.class;
+	}
 
-    public void deleteAddress(Address address) {
-        customerService.deleteAddress(address);
-    }
+	public void deleteAddress(Address address) {
+		customerService.deleteAddress(address);
+	}
 
-    public Class<? extends ViewConfig> cancelAddress() {
-        this.address = null;
-        return View.ShowCustomer.class;
-    }
+	public Class<? extends ViewConfig> cancelAddress() {
+		this.address = null;
+		return View.ShowCustomer.class;
+	}
 
-    public boolean isCollapsed() {
-        return collapsed;
-    }
+	public boolean isCollapsed() {
+		return collapsed;
+	}
 
-    public void setCollapsed(boolean collapsed) {
-        this.collapsed = collapsed;
-    }
+	public void setCollapsed(boolean collapsed) {
+		this.collapsed = collapsed;
+	}
 
-    public Address getAddress() {
-        return address;
-    }
+	public Address getAddress() {
+		return address;
+	}
 
 }

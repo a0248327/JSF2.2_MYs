@@ -2,8 +2,8 @@ package at.irian.jsfatwork.domain;
 
 public interface BaseEntity {
 
-    Long getId();
+	Long getId();
 
-    boolean isTransient();
+	boolean isTransient();
 
 }

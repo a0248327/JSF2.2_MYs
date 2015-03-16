@@ -6,22 +6,22 @@ import javax.faces.component.FacesComponent;
 @FacesComponent("at.irian.InputSpinner")
 public class InputSpinner extends UIInput {
 
-    public static final String COMPONENT_TYPE = "at.irian.InputSpinner";
+	public static final String COMPONENT_TYPE = "at.irian.InputSpinner";
 
-    enum PropertyKeys {
-        inc
-    }
+	enum PropertyKeys {
+		inc
+	}
 
-    public InputSpinner() {
-        setRendererType("at.irian.InputSpinner");
-    }
+	public InputSpinner() {
+		setRendererType("at.irian.InputSpinner");
+	}
 
-    public int getInc() {
-        return (Integer)getStateHelper().eval(PropertyKeys.inc, 1);
-    }
+	public int getInc() {
+		return (Integer) getStateHelper().eval(PropertyKeys.inc, 1);
+	}
 
-    public void setInc(int inc) {
-        getStateHelper().put(PropertyKeys.inc, inc);
-    }
+	public void setInc(int inc) {
+		getStateHelper().put(PropertyKeys.inc, inc);
+	}
 
 }

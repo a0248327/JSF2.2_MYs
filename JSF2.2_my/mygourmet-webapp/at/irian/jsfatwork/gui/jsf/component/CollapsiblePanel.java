@@ -10,31 +10,31 @@ import javax.faces.event.ActionEvent;
 @FacesComponent(CollapsiblePanel.COMPONENT_TYPE)
 public class CollapsiblePanel extends UINamingContainer {
 
-    public static final String COMPONENT_TYPE = "at.irian.CollapsiblePanel";
+	public static final String COMPONENT_TYPE = "at.irian.CollapsiblePanel";
 
-    enum PropertyKeys {
-        collapsed
-    }
+	enum PropertyKeys {
+		collapsed
+	}
 
-    public boolean isCollapsed() {
-        return (Boolean)getStateHelper().eval(PropertyKeys.collapsed, Boolean.FALSE);
-    }
+	public boolean isCollapsed() {
+		return (Boolean) getStateHelper().eval(PropertyKeys.collapsed, Boolean.FALSE);
+	}
 
-    public void setCollapsed(boolean collapsed) {
-        getStateHelper().put(PropertyKeys.collapsed, collapsed);
-    }
+	public void setCollapsed(boolean collapsed) {
+		getStateHelper().put(PropertyKeys.collapsed, collapsed);
+	}
 
-    public void toggle(ActionEvent e) {
-        setCollapsed(!isCollapsed());
-        setCollapsedValueExpression();
-    }
+	public void toggle(ActionEvent e) {
+		setCollapsed(!isCollapsed());
+		setCollapsedValueExpression();
+	}
 
-    private void setCollapsedValueExpression() {
-        ELContext ctx = FacesContext.getCurrentInstance().getELContext();
-        ValueExpression ve = getValueExpression(PropertyKeys.collapsed.name());
-        if (ve != null) {
-            ve.setValue(ctx, isCollapsed());
-        }
-    }
-    
+	private void setCollapsedValueExpression() {
+		ELContext ctx = FacesContext.getCurrentInstance().getELContext();
+		ValueExpression ve = getValueExpression(PropertyKeys.collapsed.name());
+		if (ve != null) {
+			ve.setValue(ctx, isCollapsed());
+		}
+	}
+
 }

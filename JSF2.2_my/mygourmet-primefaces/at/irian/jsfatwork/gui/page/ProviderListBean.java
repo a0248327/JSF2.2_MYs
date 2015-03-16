@@ -14,31 +14,31 @@ import java.util.List;
 @ViewAccessScoped
 public class ProviderListBean implements Serializable {
 
-    @Inject
-    private ProviderService providerService;
+	@Inject
+	private ProviderService providerService;
 
-    private List<Provider> providerList;
-    private Provider provider;
+	private List<Provider> providerList;
+	private Provider provider;
 
-    @SuppressWarnings("UnusedDeclaration")
-    @PreRenderView
-    public void preRenderView() {
-        providerList = providerService.findAll();
-    }
+	@SuppressWarnings("UnusedDeclaration")
+	@PreRenderView
+	public void preRenderView() {
+		providerList = providerService.findAll();
+	}
 
-    public List<Provider> getProviderList() {
-        return providerList;
-    }
+	public List<Provider> getProviderList() {
+		return providerList;
+	}
 
-    public void selectProvider(Provider provider) {
-        this.provider = provider;
-    }
+	public void selectProvider(Provider provider) {
+		this.provider = provider;
+	}
 
-    public void deleteProvider() {
-        if (provider != null) {
-            providerService.delete(provider);
-            provider = null;
-        }
-    }
+	public void deleteProvider() {
+		if (provider != null) {
+			providerService.delete(provider);
+			provider = null;
+		}
+	}
 
 }

@@ -14,19 +14,19 @@ import javax.inject.Named;
 @ApplicationScoped
 public class ViewIdProvider {
 
-    @Inject
-    private ViewConfigResolver viewConfigResolver;
+	@Inject
+	private ViewConfigResolver viewConfigResolver;
 
-    public String getAddCustomer() {
-        return viewConfigResolver.getViewConfigDescriptor(View.AddCustomer1.class).getViewId();
-    }
+	public String getAddCustomer() {
+		return viewConfigResolver.getViewConfigDescriptor(View.AddCustomer1.class).getViewId();
+	}
 
-    public String getShowProvider() {
-        return viewConfigResolver.getViewConfigDescriptor(View.ShowProvider.class).getViewId();
-    }
+	public String getShowProvider() {
+		return viewConfigResolver.getViewConfigDescriptor(View.ShowProvider.class).getViewId();
+	}
 
-    public String getEditProvider() {
-        return viewConfigResolver.getViewConfigDescriptor(View.EditProvider.class).getViewId();
-    }
+	public String getEditProvider() {
+		return viewConfigResolver.getViewConfigDescriptor(View.EditProvider.class).getViewId();
+	}
 
 }

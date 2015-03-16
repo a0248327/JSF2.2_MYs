@@ -12,13 +12,13 @@ import javax.faces.event.SystemEventListener;
  */
 public class ApplicationStartupListener implements SystemEventListener {
 
-    public boolean isListenerForSource(Object source) {
-        return source instanceof Application;
-    }
+	public boolean isListenerForSource(Object source) {
+		return source instanceof Application;
+	}
 
-    public void processEvent(SystemEvent event) {
-        InitializationService initializationService = CdiUtil.resolveBean(InitializationService.class);
-        initializationService.init();
-    }
+	public void processEvent(SystemEvent event) {
+		InitializationService initializationService = CdiUtil.resolveBean(InitializationService.class);
+		initializationService.init();
+	}
 
 }

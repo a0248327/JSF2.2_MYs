@@ -25,117 +25,115 @@ import java.util.List;
 @ViewAccessScoped
 public class ProviderBean implements Serializable {
 
-    @Inject
-    private ProviderService providerService;
-    @Inject
-    private FinderService finderService;
-    @Inject
-    private DishService dishService;
-    @Inject
-    private FacesContext facesContext;
-    @Inject
-    private NavigationResolver navigationResolver;
+	@Inject
+	private ProviderService providerService;
+	@Inject
+	private FinderService finderService;
+	@Inject
+	private DishService dishService;
+	@Inject
+	private FacesContext facesContext;
+	@Inject
+	private NavigationResolver navigationResolver;
 
-    @Min(value = 0)
-    private Long id;
+	@Min(value = 0)
+	private Long id;
 
-    private Provider provider;
-    private Dish dish;
-    private List<SelectItem> categoryItems;
+	private Provider provider;
+	private Dish dish;
+	private List<SelectItem> categoryItems;
 
-    @PostConstruct
-    public void init() {
-        List<Category> categories = finderService.findAll(Category.class);
-        categoryItems = new ArrayList<SelectItem>(categories.size());
-        for (Category cat : categories) {
-            categoryItems.add(new SelectItem(cat, cat.getName()));
-        }
-    }
+	@PostConstruct
+	public void init() {
+		List<Category> categories = finderService.findAll(Category.class);
+		categoryItems = new ArrayList<SelectItem>(categories.size());
+		for (Category cat : categories) {
+			categoryItems.add(new SelectItem(cat, cat.getName()));
+		}
+	}
 
-    public String loadProvider() {
-        if (id != null) {
-            provider = providerService.findById(id);
-            if (provider == null) {
-                GuiUtil.addErrorMessage("error_non_existing_provider", id);
-            }
-        }
-        return null;
-    }
+	public String loadProvider() {
+		if (id != null) {
+			provider = providerService.findById(id);
+			if (provider == null) {
+				GuiUtil.addErrorMessage("error_non_existing_provider", id);
+			}
+		}
+		return null;
+	}
 
-    public Provider getProvider() {
-        return provider;
-    }
+	public Provider getProvider() {
+		return provider;
+	}
 
-    public Class<? extends ViewConfig> createProvider() {
-        this.provider = providerService.createNew();
-        return View.EditProvider.class;
-    }
+	public Class<? extends ViewConfig> createProvider() {
+		this.provider = providerService.createNew();
+		return View.EditProvider.class;
+	}
 
-    public String cancel() {
-        if (provider.isTransient()) {
-            return navigationResolver.getNavigationOutcome(View.ProviderList.class).getOutcome();
-        } else {
-            return getShowProviderOutcome();
-        }
-    }
+	public String cancel() {
+		if (provider.isTransient()) {
+			return navigationResolver.getNavigationOutcome(View.ProviderList.class).getOutcome();
+		} else {
+			return getShowProviderOutcome();
+		}
+	}
 
-    public String saveProvider() {
-        providerService.save(provider);
-        id = provider.getId();
-        return getShowProviderOutcome();
-    }
+	public String saveProvider() {
+		providerService.save(provider);
+		id = provider.getId();
+		return getShowProviderOutcome();
+	}
 
-    public Dish getDish() {
-        return dish;
-    }
+	public Dish getDish() {
+		return dish;
+	}
 
-    public Class<? extends ViewConfig> createDish() {
-        this.dish = dishService.createNew();
-        return View.EditDish.class;
-    }
+	public Class<? extends ViewConfig> createDish() {
+		this.dish = dishService.createNew();
+		return View.EditDish.class;
+	}
 
-    public Class<? extends ViewConfig> editDish(Dish dish) {
-        this.dish = dish;
-        return View.EditDish.class;
-    }
+	public Class<? extends ViewConfig> editDish(Dish dish) {
+		this.dish = dish;
+		return View.EditDish.class;
+	}
 
-    public String saveDish() {
-        dishService.save(provider, dish);
-        this.provider = providerService.findById(this.provider.getId());
-        this.dish = null;
-        return getShowProviderOutcome();
-    }
+	public String saveDish() {
+		dishService.save(provider, dish);
+		this.provider = providerService.findById(this.provider.getId());
+		this.dish = null;
+		return getShowProviderOutcome();
+	}
 
-    public String cancelDish() {
-        this.dish = null;
-        return getShowProviderOutcome();
-    }
+	public String cancelDish() {
+		this.dish = null;
+		return getShowProviderOutcome();
+	}
 
-    public void selectDish(Dish dish) {
-        this.dish = dish;
-    }
+	public void selectDish(Dish dish) {
+		this.dish = dish;
+	}
 
-    public void deleteDish() {
-        dishService.delete(dish);
-        this.dish = null;
-    }
+	public void deleteDish() {
+		dishService.delete(dish);
+		this.dish = null;
+	}
 
-    public List getCategoryItems() {
-        return categoryItems;
-    }
+	public List getCategoryItems() {
+		return categoryItems;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    private String getShowProviderOutcome() {
-        return navigationResolver.getNavigationOutcome(View.ShowProvider.class)
-                .withIncludeViewParams(true)
-                .getOutcome();
-    }
+	private String getShowProviderOutcome() {
+		return navigationResolver.getNavigationOutcome(View.ShowProvider.class).withIncludeViewParams(true).getOutcome();
+	}
 
 }

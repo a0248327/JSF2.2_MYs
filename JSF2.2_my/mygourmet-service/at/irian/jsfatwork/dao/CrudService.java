@@ -12,39 +12,39 @@ import java.util.List;
 @ApplicationScoped
 public class CrudService {
 
-    @Inject
-    private EntityManager em;
+	@Inject
+	private EntityManager em;
 
-    public <T extends BaseEntity> T createNew(Class<T> clazz) {
-        try {
-            return clazz.newInstance();
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
-    }
+	public <T extends BaseEntity> T createNew(Class<T> clazz) {
+		try {
+			return clazz.newInstance();
+		} catch (InstantiationException e) {
+			throw new RuntimeException(e);
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-    public <T extends BaseEntity> void persist(T entity) {
-        em.persist(entity);
-    }
+	public <T extends BaseEntity> void persist(T entity) {
+		em.persist(entity);
+	}
 
-    public <T extends BaseEntity> List<T> findAll(Class<T> clazz) {
-        CriteriaBuilder builder = em.getCriteriaBuilder();
-        CriteriaQuery<T> query = builder.createQuery(clazz);
-        return em.createQuery(query.select(query.from(clazz))).getResultList();
-    }
+	public <T extends BaseEntity> List<T> findAll(Class<T> clazz) {
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+		CriteriaQuery<T> query = builder.createQuery(clazz);
+		return em.createQuery(query.select(query.from(clazz))).getResultList();
+	}
 
-    public <T extends BaseEntity> T findById(Class<T> clazz, long id) {
-        return em.find(clazz, id);
-    }
+	public <T extends BaseEntity> T findById(Class<T> clazz, long id) {
+		return em.find(clazz, id);
+	}
 
-    public <T extends BaseEntity> void delete(T entity) {
-        em.remove(entity);
-    }
+	public <T extends BaseEntity> void delete(T entity) {
+		em.remove(entity);
+	}
 
-    public <T extends BaseEntity> T merge(T entity) {
-        return em.merge(entity);
-    }
+	public <T extends BaseEntity> T merge(T entity) {
+		return em.merge(entity);
+	}
 
 }

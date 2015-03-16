@@ -14,26 +14,26 @@ import org.apache.commons.logging.LogFactory;
  * @author Michael Kurz
  */
 public class DebugPhaseListener implements PhaseListener {
-    private static final long serialVersionUID = 28697126271609506L;
-    private static Log log = LogFactory.getLog(DebugPhaseListener.class);
+	private static final long serialVersionUID = 28697126271609506L;
+	private static Log log = LogFactory.getLog(DebugPhaseListener.class);
 
-    public void afterPhase(PhaseEvent ev) {
-        String ajax = getAjaxText(ev.getFacesContext());
-        PhaseId phaseId = ev.getPhaseId();
-        log.debug("After phase: " + phaseId + ajax);
-    }
+	public void afterPhase(PhaseEvent ev) {
+		String ajax = getAjaxText(ev.getFacesContext());
+		PhaseId phaseId = ev.getPhaseId();
+		log.debug("After phase: " + phaseId + ajax);
+	}
 
-    public void beforePhase(PhaseEvent ev) {
-        String ajax = getAjaxText(ev.getFacesContext());
-        PhaseId phaseId = ev.getPhaseId();
-        log.debug("Before phase: " + phaseId + ajax);
-    }
+	public void beforePhase(PhaseEvent ev) {
+		String ajax = getAjaxText(ev.getFacesContext());
+		PhaseId phaseId = ev.getPhaseId();
+		log.debug("Before phase: " + phaseId + ajax);
+	}
 
-    public PhaseId getPhaseId() {
-        return PhaseId.ANY_PHASE;
-    }
+	public PhaseId getPhaseId() {
+		return PhaseId.ANY_PHASE;
+	}
 
-    private String getAjaxText(FacesContext ctx) {
-        return ctx.getPartialViewContext().isAjaxRequest() ? " (Ajax)" : "";
-    }
+	private String getAjaxText(FacesContext ctx) {
+		return ctx.getPartialViewContext().isAjaxRequest() ? " (Ajax)" : "";
+	}
 }

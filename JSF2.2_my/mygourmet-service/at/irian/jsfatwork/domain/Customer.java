@@ -13,67 +13,65 @@ import java.util.*;
 @Table(name = "CUSTOMER")
 @SequenceGenerator(name = "CUSTOMER_SEQUENCE_GENERATOR", sequenceName = "CUSTOMER_SEQUENCE")
 public class Customer extends AbstractBaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUSTOMER_SEQUENCE_GENERATOR")
-    @Column(name = "ID")
-    private Long id;
-    @NotNull
-    @Column(name = "FIRSTNAME")
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUSTOMER_SEQUENCE_GENERATOR")
+	@Column(name = "ID")
+	private Long id;
+	@NotNull
+	@Column(name = "FIRSTNAME")
 	private String firstName;
-    @NotNull
-    @Column(name = "LASTNAME")
+	@NotNull
+	@Column(name = "LASTNAME")
 	private String lastName;
-    @NotNull
-    @Column(name = "EMAIL")
-    private String email;
-    @NotNull
-    @Column(name = "GENDER")
+	@NotNull
+	@Column(name = "EMAIL")
+	private String email;
+	@NotNull
+	@Column(name = "GENDER")
 	private Character gender;
-    @Birthday
-    @Column(name = "BIRTHDAY")
-    @Temporal(TemporalType.DATE)
+	@Birthday
+	@Column(name = "BIRTHDAY")
+	@Temporal(TemporalType.DATE)
 	private Date birthday;
-    @Column(name = "USE_CREDIT_CARD")
+	@Column(name = "USE_CREDIT_CARD")
 	private Boolean useCreditCard = Boolean.FALSE;
-    @NotNull
-    @Column(name = "CC_TYPE")
-    @Enumerated(EnumType.STRING)
+	@NotNull
+	@Column(name = "CC_TYPE")
+	@Enumerated(EnumType.STRING)
 	private CreditCardType creditCardType;
-    @NotNull
-    @Column(name = "CC_NUMBER")
+	@NotNull
+	@Column(name = "CC_NUMBER")
 	private String creditCardNumber;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "CUSTOMER_CATEGORY",
-            joinColumns = @JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID"))
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "CUSTOMER_CATEGORY", joinColumns = @JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID"))
 	private Set<Category> preferredCategories = new HashSet<Category>();
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Address> addresses = new ArrayList<Address>();
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Order> orders = new ArrayList<Order>();
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+	private List<Address> addresses = new ArrayList<Address>();
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+	private List<Order> orders = new ArrayList<Order>();
 
-    @Transient
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
+	@Transient
+	public String getFullName() {
+		return firstName + " " + lastName;
+	}
 
-    public void addAddress(Address address) {
-        address.setCustomer(this);
-        addresses.add(address);
-    }
+	public void addAddress(Address address) {
+		address.setCustomer(this);
+		addresses.add(address);
+	}
 
-    public void removeAddress(Address address) {
-        this.addresses.remove(address);
-        address.setCustomer(null);
-    }
+	public void removeAddress(Address address) {
+		this.addresses.remove(address);
+		address.setCustomer(null);
+	}
 
-    // Getters and setters
+	// Getters and setters
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getFirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
@@ -137,15 +135,15 @@ public class Customer extends AbstractBaseEntity {
 		this.creditCardNumber = creditCardNumber;
 	}
 
-    public Set<Category> getPreferredCategories() {
-        return preferredCategories;
-    }
+	public Set<Category> getPreferredCategories() {
+		return preferredCategories;
+	}
 
-    public void setPreferredCategories(Set<Category> preferredCategories) {
-        this.preferredCategories = preferredCategories;
-    }
+	public void setPreferredCategories(Set<Category> preferredCategories) {
+		this.preferredCategories = preferredCategories;
+	}
 
-    public List<Address> getAddresses() {
+	public List<Address> getAddresses() {
 		return addresses;
 	}
 
@@ -153,16 +151,16 @@ public class Customer extends AbstractBaseEntity {
 		this.addresses = addresses;
 	}
 
-    public List<Order> getOrders() {
-        return orders;
-    }
+	public List<Order> getOrders() {
+		return orders;
+	}
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
 
-    public void addOrder(Order order) {
-        order.setCustomer(this);
-        this.orders.add(order);
-    }
+	public void addOrder(Order order) {
+		order.setCustomer(this);
+		this.orders.add(order);
+	}
 }

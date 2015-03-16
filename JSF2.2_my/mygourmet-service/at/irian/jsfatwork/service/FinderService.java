@@ -10,17 +10,17 @@ import java.util.List;
 
 @ApplicationScoped
 public class FinderService {
-    @Inject
-    private CrudService crudService;
+	@Inject
+	private CrudService crudService;
 
-    @Transactional
-    public <T extends BaseEntity> T find(Class<T> clazz, long id) {
-        return crudService.findById(clazz, id);
-    }
+	@Transactional
+	public <T extends BaseEntity> T find(Class<T> clazz, long id) {
+		return crudService.findById(clazz, id);
+	}
 
-    @Transactional
-    public <T extends BaseEntity> List<T> findAll(Class<T> clazz) {
-        return crudService.findAll(clazz);
-    }
+	@Transactional
+	public <T extends BaseEntity> List<T> findAll(Class<T> clazz) {
+		return crudService.findAll(clazz);
+	}
 
 }

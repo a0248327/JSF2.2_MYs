@@ -3,35 +3,35 @@ package at.irian.jsfatwork.gui.page;
 import at.irian.jsfatwork.domain.Dish;
 
 public class SelectableDish {
-    private boolean selected;
-    private Dish dish;
-    private Integer amount;
+	private boolean selected;
+	private Dish dish;
+	private Integer amount;
 
-    public SelectableDish(Dish dish) {
-        this.dish = dish;
-    }
+	public SelectableDish(Dish dish) {
+		this.dish = dish;
+	}
 
-    public boolean isSelected() {
-        return selected;
-    }
+	public boolean isSelected() {
+		return selected;
+	}
 
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
 
-    public Dish getDish() {
-        return dish;
-    }
+	public Dish getDish() {
+		return dish;
+	}
 
-    public void setDish(Dish dish) {
-        this.dish = dish;
-    }
+	public void setDish(Dish dish) {
+		this.dish = dish;
+	}
 
-    public Integer getAmount() {
-        return amount;
-    }
+	public Integer getAmount() {
+		return amount;
+	}
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
 }

@@ -12,19 +12,17 @@ import java.io.Serializable;
 
 @FacesConverter(value = ZipCodeConverter.CONVERTER_ID)
 public class ZipCodeConverter extends IntegerConverter implements Serializable {
-    private static final long serialVersionUID = 7058986733877680578L;
+	private static final long serialVersionUID = 7058986733877680578L;
 
-    public static final String CONVERTER_ID = "at.irian.ZipCode";
+	public static final String CONVERTER_ID = "at.irian.ZipCode";
 
-    public Object getAsObject(FacesContext ctx, UIComponent component,
-			String value) throws ConverterException {
-		
+	public Object getAsObject(FacesContext ctx, UIComponent component, String value) throws ConverterException {
+
 		if (value != null && value.length() > 0) {
 			int pos = value.indexOf('-');
 			for (int i = 0; i < pos; i++) {
 				if (!Character.isLetter(value.charAt(i))) {
-                    FacesMessage msg = GuiUtil.getFacesMessage(
-                            ctx, FacesMessage.SEVERITY_ERROR, "zipCodeConverter.CONVERSION");
+					FacesMessage msg = GuiUtil.getFacesMessage(ctx, FacesMessage.SEVERITY_ERROR, "zipCodeConverter.CONVERSION");
 					throw new ConverterException(msg);
 				}
 			}

@@ -14,11 +14,10 @@ import java.util.ResourceBundle;
 public class GuiUtil {
 	private static final Log log = LogFactory.getLog(GuiUtil.class);
 
-	public static String getResourceText(
-            FacesContext ctx, String bundleName, String key, Object... args) {
-    	Application app = ctx.getApplication();
+	public static String getResourceText(FacesContext ctx, String bundleName, String key, Object... args) {
+		Application app = ctx.getApplication();
 		ResourceBundle bundle = app.getResourceBundle(ctx, bundleName);
-        return getResourceText(bundle, key, args);
+		return getResourceText(bundle, key, args);
 	}
 
 	public static String getResourceText(ResourceBundle bundle, String key, Object... args) {
@@ -35,11 +34,9 @@ public class GuiUtil {
 		return text;
 	}
 
-	public static FacesMessage getFacesMessage(
-            FacesContext ctx, FacesMessage.Severity severity, String msgKey, Object... args) {
+	public static FacesMessage getFacesMessage(FacesContext ctx, FacesMessage.Severity severity, String msgKey, Object... args) {
 		Locale loc = ctx.getViewRoot().getLocale();
-		ResourceBundle bundle = ResourceBundle.getBundle(
-                ctx.getApplication().getMessageBundle(), loc);
+		ResourceBundle bundle = ResourceBundle.getBundle(ctx.getApplication().getMessageBundle(), loc);
 		String msg = bundle.getString(msgKey);
 		if (args != null) {
 			MessageFormat format = new MessageFormat(msg);
@@ -48,20 +45,19 @@ public class GuiUtil {
 		return new FacesMessage(severity, msg, null);
 	}
 
-    public static void addErrorMessage(String msgKey, Object... args) {
-        addErrorMessage(FacesContext.getCurrentInstance(), msgKey, args);
-    }
+	public static void addErrorMessage(String msgKey, Object... args) {
+		addErrorMessage(FacesContext.getCurrentInstance(), msgKey, args);
+	}
 
-    public static void addErrorMessage(FacesContext ctx, String msgKey, Object... args) {
-        Locale loc = ctx.getViewRoot().getLocale();
-        ResourceBundle bundle = ResourceBundle.getBundle(
-                ctx.getApplication().getMessageBundle(), loc);
-        String msg = bundle.getString(msgKey);
-        if (args != null) {
-            MessageFormat format = new MessageFormat(msg);
-            msg = format.format(args);
-        }
-        ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, null));
-    }
+	public static void addErrorMessage(FacesContext ctx, String msgKey, Object... args) {
+		Locale loc = ctx.getViewRoot().getLocale();
+		ResourceBundle bundle = ResourceBundle.getBundle(ctx.getApplication().getMessageBundle(), loc);
+		String msg = bundle.getString(msgKey);
+		if (args != null) {
+			MessageFormat format = new MessageFormat(msg);
+			msg = format.format(args);
+		}
+		ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, null));
+	}
 
 }

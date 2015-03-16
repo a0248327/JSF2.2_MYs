@@ -11,11 +11,11 @@ import java.util.Set;
  */
 public class CdiUtil {
 
-    public static <T> T resolveBean(Class<T> clazz) {
-        BeanManager beanManager = BeanManagerProvider.getInstance().getBeanManager();
-        Set<Bean<?>> beans = beanManager.getBeans(clazz);
-        Bean<?> bean = beanManager.resolve(beans);
-        return (T)beanManager.getReference(bean, clazz, beanManager.createCreationalContext(bean));
-    }
+	public static <T> T resolveBean(Class<T> clazz) {
+		BeanManager beanManager = BeanManagerProvider.getInstance().getBeanManager();
+		Set<Bean<?>> beans = beanManager.getBeans(clazz);
+		Bean<?> bean = beanManager.resolve(beans);
+		return (T) beanManager.getReference(bean, clazz, beanManager.createCreationalContext(bean));
+	}
 
 }

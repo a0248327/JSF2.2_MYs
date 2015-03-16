@@ -14,22 +14,22 @@ import java.util.List;
 @ViewAccessScoped
 public class CustomerListBean implements Serializable {
 
-    @Inject
-    private CustomerService customerService;
+	@Inject
+	private CustomerService customerService;
 
-    private List<Customer> customerList;
+	private List<Customer> customerList;
 
-    @PreRenderView
-    public void preRenderView() {
-        customerList = customerService.findAll();
-    }
+	@PreRenderView
+	public void preRenderView() {
+		customerList = customerService.findAll();
+	}
 
-    public List<Customer> getCustomerList() {
-        return customerList;
-    }
+	public List<Customer> getCustomerList() {
+		return customerList;
+	}
 
-    public void deleteCustomer(Customer customer) {
-        customerService.delete(customer);
-    }
-    
+	public void deleteCustomer(Customer customer) {
+		customerService.delete(customer);
+	}
+
 }

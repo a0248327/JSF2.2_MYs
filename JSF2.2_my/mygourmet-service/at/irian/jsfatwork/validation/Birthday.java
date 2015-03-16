@@ -11,10 +11,12 @@ import static java.lang.annotation.RetentionPolicy.*;
 
 @Constraint(validatedBy = BirthdayValidator.class)
 @Documented
-@Target({ANNOTATION_TYPE, METHOD, FIELD})
+@Target({ ANNOTATION_TYPE, METHOD, FIELD })
 @Retention(RUNTIME)
 public @interface Birthday {
-    String message() default "Wrong birthday";
-    Class<?>[] groups() default {};
-    Class<? extends Payload>[] payload() default {};
+	String message() default "Wrong birthday";
+
+	Class<?>[] groups() default {};
+
+	Class<? extends Payload>[] payload() default {};
 }

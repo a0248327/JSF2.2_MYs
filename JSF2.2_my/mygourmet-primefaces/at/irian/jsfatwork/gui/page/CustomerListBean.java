@@ -15,31 +15,31 @@ import java.util.List;
 @ViewAccessScoped
 public class CustomerListBean implements Serializable {
 
-    @Inject
-    private CustomerService customerService;
+	@Inject
+	private CustomerService customerService;
 
-    private List<Customer> customerList;
+	private List<Customer> customerList;
 
-    private Customer customer;
+	private Customer customer;
 
-    @PreRenderView
-    public void preRenderView() {
-        customerList = customerService.findAll();
-    }
+	@PreRenderView
+	public void preRenderView() {
+		customerList = customerService.findAll();
+	}
 
-    public List<Customer> getCustomerList() {
-        return customerList;
-    }
+	public List<Customer> getCustomerList() {
+		return customerList;
+	}
 
-    public void deleteCustomer() {
-        if (customer != null) {
-            customerService.delete(customer);
-            customer = null;
-        }
-    }
+	public void deleteCustomer() {
+		if (customer != null) {
+			customerService.delete(customer);
+			customer = null;
+		}
+	}
 
-    public void selectCustomer(Customer customer) {
-        this.customer = customer;
-    }
+	public void selectCustomer(Customer customer) {
+		this.customer = customer;
+	}
 
 }

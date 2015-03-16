@@ -12,72 +12,72 @@ import java.util.HashSet;
 @Table(name = "DISH")
 @SequenceGenerator(name = "DISH_SEQUENCE_GENERATOR", sequenceName = "DISH_SEQUENCE")
 public class Dish extends AbstractBaseEntity {
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DISH_SEQUENCE_GENERATOR")
-    private Long id;
+	@Id
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DISH_SEQUENCE_GENERATOR")
+	private Long id;
 
-    @NotNull
-    @Column(name = "NAME")
-    @Size(max = 50)
-    private String name;
+	@NotNull
+	@Column(name = "NAME")
+	@Size(max = 50)
+	private String name;
 
-    @Column(name = "DESCRIPTION")
-    private String description;
+	@Column(name = "DESCRIPTION")
+	private String description;
 
-    @Column(name = "PRICE")
-    @Min(0)
-    private Double price;
+	@Column(name = "PRICE")
+	@Min(0)
+	private Double price;
 
-    @ManyToOne
-    @JoinColumn(name = "PROVIDER_ID", referencedColumnName = "ID")
-    private Provider provider;
+	@ManyToOne
+	@JoinColumn(name = "PROVIDER_ID", referencedColumnName = "ID")
+	private Provider provider;
 
-    @OneToMany(mappedBy = "dish", cascade = CascadeType.ALL)
-    private Set<OrderItem> orderItems = new HashSet<OrderItem>();
+	@OneToMany(mappedBy = "dish", cascade = CascadeType.ALL)
+	private Set<OrderItem> orderItems = new HashSet<OrderItem>();
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public Double getPrice() {
-        return price;
-    }
+	public Double getPrice() {
+		return price;
+	}
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 
-    public Provider getProvider() {
-        return provider;
-    }
+	public Provider getProvider() {
+		return provider;
+	}
 
-    public void setProvider(Provider provider) {
-        this.provider = provider;
-    }
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
 
-    public Set<OrderItem> getOrderItems() {
-        return orderItems;
-    }
+	public Set<OrderItem> getOrderItems() {
+		return orderItems;
+	}
 
-    public void setOrderItems(Set<OrderItem> orderItems) {
-        this.orderItems = orderItems;
-    }
+	public void setOrderItems(Set<OrderItem> orderItems) {
+		this.orderItems = orderItems;
+	}
 
 }

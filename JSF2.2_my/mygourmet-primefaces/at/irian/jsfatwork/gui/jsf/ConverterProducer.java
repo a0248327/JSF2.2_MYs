@@ -14,14 +14,16 @@ import javax.inject.Named;
 @ApplicationScoped
 public class ConverterProducer {
 
-    @Produces @Named
-    public EntityConverter<Category> getCategoryConverter(FinderService finderService) {
-        return new EntityConverter<Category>(finderService, Category.class);
-    }
+	@Produces
+	@Named
+	public EntityConverter<Category> getCategoryConverter(FinderService finderService) {
+		return new EntityConverter<Category>(finderService, Category.class);
+	}
 
-    @Produces @Named
-    public EntityConverter<Provider> getProviderConverter(FinderService finderService) {
-        return new EntityConverter<Provider>(finderService, Provider.class);
-    }
+	@Produces
+	@Named
+	public EntityConverter<Provider> getProviderConverter(FinderService finderService) {
+		return new EntityConverter<Provider>(finderService, Provider.class);
+	}
 
 }
